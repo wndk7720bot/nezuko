@@ -11,9 +11,9 @@
 
 function response(room, msg, sender, isGroupChat, replier) {
 
-  /*
-   * Do something
-   */
+
+    // Do something
+
 
 }
 
