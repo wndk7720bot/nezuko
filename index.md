@@ -1,6 +1,6 @@
 ## Welcome to Kakaotalk Nezuko Bot Repository
 
-안녕하세요.
+안녕하세요.\n
 카카오톡 [네즈코봇 Repository](https://github.com/wndk7720bot/nezuko)에 오신 것을 환영합니다.
 
 
@@ -28,10 +28,8 @@ Syntax highlighted code block
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/wndk7720bot/nezuko/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+네즈코봇에 요청사항 및 문제가 있으신가요?
+Email : wndk7720bot@gamil.com 으로 연락주세요.
