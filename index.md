@@ -1,7 +1,6 @@
 ## Welcome to Kakaotalk Nezuko Bot Repository
 
-안녕하세요.\n
-카카오톡 [네즈코봇 Repository](https://github.com/wndk7720bot/nezuko)에 오신 것을 환영합니다.
+안녕하세요. 카카오톡 [네즈코봇 Repository](https://github.com/wndk7720bot/nezuko)에 오신 것을 환영합니다.
 
 
 ### Markdown
