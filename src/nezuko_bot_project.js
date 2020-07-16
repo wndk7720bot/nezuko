@@ -1,3 +1,5 @@
+const NEZUKO_VERSION = '1.0.0';
+
 const RAND_MAX = 100;
 const BOSS_GAME_RAND_MAX = 100;
 const ANI_PAGE_RAND_MAX = 16;
@@ -344,7 +346,7 @@ function help_response(msg, replier, req_msg) {
 	for (var i=0; i < req_msg.length; i++) {
 		if (msg.indexOf(req_msg[i]) != -1) {
 			java.lang.Thread.sleep(500);
-			replier.reply('우~!우~!우~! (네즈코 도움말)\n\n 1. "네즈코", "인사말" 등 기본적으로 무조건 반사하는 문장들이 있다.\n 2. 일반적으로 "네즈코 [명령어]"로 지원하며 목록은 아래와 같다.\n   - 네즈코 도움말\n   - 네즈코 환영하기\n   - 네즈코 뭐해\n   - 네즈코 실시간 검색어\n   - 네즈코 치킨추천\n 3. 그 외 명령어도 존재하며 소리소문없이 생성되었다 사라질 수 있다.\n 4. 건의사항 및 버그 정보는 오프모임 나와서 이야기 바라며, 이상 다덕임 수문장 네즈코의 설명이다.');
+			replier.reply('우~!우~!우~! (네즈코 도움말)\n * Nezuko Version ' + NEZUKO_VERSION + ' *\n\n 1. "네즈코", "인사말" 등 기본적으로 무조건 반사하는 문장들이 있다.\n 2. 일반적으로 "네즈코 [명령어]"로 지원하며 목록은 아래와 같다.\n   - 네즈코 도움말\n   - 네즈코 환영하기\n   - 네즈코 뭐해\n   - 네즈코 실시간 검색어\n   - 네즈코 애니추천\n 3. 그 외 명령어도 존재하며 소리소문없이 생성되었다 사라질 수 있다.\n 4. 건의사항 및 버그 정보는 오프모임 나와서 이야기 바라며, 이상 다덕임 수문장 네즈코의 설명이다.');
 			return 0;
 		}
 	}
@@ -588,7 +590,6 @@ function nezuko_command_response(msg, sender, replier) {
 			/* 네즈코 명령어 */
 			if (help_response(msg, replier, help_msg) == 0) return 0;
 			if (meet_response(msg, replier, meet_msg) == 0) return 0;
-			if (hinokami_kagura_response(msg, replier, hinokami_msg) == 0) return 0;
 			if (coin_response(msg, replier, coin_msg) == 0) return 0;
 			if (study_req_rsp(msg, replier, study_msg) == 0) return 0;
 			if (study_check_response(msg, replier, study_check_msg) == 0) return 0;
@@ -616,9 +617,10 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
 	var today = new Date();
 	var time_flag = 0;
 
-	/* 금지어 */
+	/* 우선 반응 명령어 */
 	if (yok_response(msg, replier, yok_msg) == 0) return;
-	
+	if (hinokami_kagura_response(msg, replier, hinokami_msg) == 0) return;
+
 	/* 네즈코 명령어 */
 	if (nezuko_command_response(msg, sender, replier) == 0) return;
 	
