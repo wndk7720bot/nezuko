@@ -3,29 +3,21 @@
 안녕하세요. 카카오톡 [네즈코봇 Repository](https://github.com/wndk7720bot/nezuko)에 오신 것을 환영합니다.
 
 
-### Markdown
+### Information
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+네즈코봇은 **채팅 자동응답 봇** 어플에 맞춰 구현되어있으며, **JavaScript** 언어를 사용합니다.
 
 ```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+function response(room, msg, sender, isGroupChat, replier) {
 
-- Bulleted
-- List
+  /*
+   * Do something
+   */
 
-1. Numbered
-2. List
+}
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 
 ### Support or Contact
