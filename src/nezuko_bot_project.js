@@ -67,8 +67,8 @@ var hogam_sender = 	[];
 var hogam_sender_value= [];
 
 /* 공부하기 명령어 */
-var study_msg = 	['공부하기', '학습하기', '배우기'];
-var study_check_msg = 	['공부내용', '학습내용', '배운내용'];
+var study_msg = 	['공부하기'];
+var study_check_msg = 	['공부내용'];
 var study_del_msg = 	['잊어버려'];
 var study_req = 	[];
 var study_rsp = 	[];
