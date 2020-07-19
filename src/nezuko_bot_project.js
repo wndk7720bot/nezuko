@@ -8,76 +8,85 @@ const ONE_HOUR_SEC = 3600;
 const TEN_MIN_SEC = 600;
 
 /* 기본 응답어 */
-var hello_msg = ['안녕', '안뇽', '안냥', '하이', 'ㅎㅇ'];
-var hello_reply = ['웅웅! (안녕안녕!)', '우우~~ (안녕~~)', '우우~! (안녕하세요~!)'];
-var nezuko_msg = ['네즈코'];
-var nezuko_reply = ['우우우우우우', '우우우웅? (왜부르냥?)', '...', '그우우우우!!', 
-					'우웅.... (우울한듯하다)', '웅!웅!웅!', '우우우!', '우.....우웅..!', 
+var hello_msg =		['안녕', '안뇽', '안냥', '하이', 'ㅎㅇ'];
+var hello_reply =	['웅웅! (안녕안녕!)', '우우~~ (안녕~~)', '우우~! (안녕하세요~!)'];
+var nezuko_msg =	['네즈코'];
+var nezuko_reply =	['우우우우우우', '우우우웅? (왜부르냥?)', '...', '그우우우우!!', 
+			'우웅.... (우울한듯하다)', '웅!웅!웅!', '우우우!', '우.....우웅..!', 
 					'....우웅?', '후으으웅', '우......................'];
-var nezuko_what_msg = ['뭐해', '뭐하', '뭐행'];
-var nezuko_what_reply = ['우~~~~~ 우우우~~ 웅웅~~!! 우우웅!!! (대략 신이났다는 뜻)', 
-						'무으으으으 (만화에 집중하고 있는 듯 하다)', '부!! (무언가를 먹다 뱉은 것 같다)',
-						'뭉..... (멍때리고 있는 듯 하다)', '으으으 (째려보고 있다)',
-						'으으우우 (졸린 것 같다)', '므므므므 (대략 말걸지 말라는 뜻)',
-						'우우?? (뭐하냐고 묻는 듯 하다)', '흐흐흐.. (건들면 안될 것 같다)',
-						'우우!!! (이제 일어났다!!!)', '믐뉴믐뉴 (대략 밥먹는 소리)'];		
-var kkk_msg = ['ㅋㅋㅋㅋ'];
-var kkk_reply = ['웃우? (웃어?)', 'ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ', 'ㅋ'];
-var hinokami_msg = ['히노카미 카구라!'];
+var nezuko_what_msg = 	['뭐해', '뭐하', '뭐행'];
+var nezuko_what_reply =	['우~~~~~ 우우우~~ 웅웅~~!! 우우웅!!! (대략 신이났다는 뜻)', 
+			'무으으으으 (만화에 집중하고 있는 듯 하다)', 
+			'부!! (무언가를 먹다 뱉은 것 같다)',
+			'뭉..... (멍때리고 있는 듯 하다)', '으으으 (째려보고 있다)',
+			'으으우우 (졸린 것 같다)', '므므므므 (대략 말걸지 말라는 뜻)',
+			'우우?? (뭐하냐고 묻는 듯 하다)', '흐흐흐.. (건들면 안될 것 같다)',
+			'우우!!! (이제 일어났다!!!)', '믐뉴믐뉴 (대략 밥먹는 소리)'];
+var nezuko_bye_msg = 	['잘자', 'ㅂㅂ', '굿나잇', '바이', 'ㅂ2', 'ㅂㅇ'];
+var nezuko_bye_reply =	['우우! (잔다!)', '우우우~ (잘자요~)', '우우.. (잘자..)']; 
+
+var kkk_msg = 		['ㅋㅋㅋㅋ'];
+var kkk_reply = 	['웃우? (웃어?)', 'ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ', 'ㅋ'];
+var hinokami_msg = 	['히노카미 카구라!'];
 
 /* 시간대별 응답어 */
-var morning_reply = ['우우! (좋은 아침!)', '우~우우~ (굿~모닝~~)', 
-					'으우으 우으우!! (오늘도 화이팅!!)'];
-var lunch_reply = ['우우? (다들 뭐해?)'];
-var evening_reply = ['우~우우~~ 우우~~~~~~~ ♪ 우우우~~우우~~~ ♬'];
-var etc_reply = ['웃우우마우마~', '우앙', '우잉', '후에', '그오오~!', '우갹', '그그그...',
-				'우힛', '우호~!', '우헤헿', '으그그', '갹', '구엑', '그익', '히익'];
+var morning_reply = 	['우우! (좋은 아침!)', '우~우우~ (굿~모닝~~)', 
+			'으우으 우으우!! (오늘도 화이팅!!)'];
+var lunch_reply = 	['우우? (다들 뭐해?)'];
+var evening_reply = 	['우~우우~~ 우우~~~~~~~ ♪ 우우우~~우우~~~ ♬'];
+var etc_reply = 	['웃우우마우마~', '우앙', '우잉', '후에', '그오오~!', '우갹', '그그그...',
+			'우힛', '우호~!', '우헤헿', '으그그', '갹', '구엑', '그익', '히익'];
 
 /* 네즈코 명령어 */
-var help_msg = ['도움말', '--help', '-h'];
-var nalssi_msg = ['날씨', '지금날씨', '현재날씨'];
-var silsigan_msg = ['실시간 검색어', '인기 검색어', '검색어'];
-var meet_msg = ['환영하기'];
-var coin_msg = ['비트코인', '이더리움', '리플', '에이다', '모네로', '트론'];
-var cal_msg = ['칼로리'];
-var chik_msg = ['치킨추천', '치킨 추천'];
-var chik_reply = ['우우우! (BBQ!)', '우우우우! (맘스터치!)', '우우우! (BHC!)', '우우우우! (페리카나!)',
-					'우우우우! (굽네치킨!)', '우우우우! (네네치킨!)', '우우우우! (노랑통닭!)', '우우우! (교촌치킨!)',
-					'우우우우! (멕시카나!)', '우우우우! (부어치킨!)', '우우우우! (순수치킨!)', '우우우 우우우 우우! (호식이 두마리 치킨!)',
-					'우우우! (처갓집!)', '우우우우! (바른치킨!)', '우우우! (멕시칸!)', '우우우우! (또래오래!)', '우우우우! (깐부치킨!)',
-					'우우우우우! (치킨플러스!)', '우우우! (KFC!)'];
-var recommend_ani_msg = ['애니추천', '만화추천', '애니 추천', '만화 추천', '추천애니', '추천만화', '추천 애니', '추천 만화'];
-var today_ani_msg = ['오늘의 애니', '오늘의애니', '오늘 애니', '오늘애니'];
+var help_msg = 		['도움말', '--help', '-h'];
+var nalssi_msg = 	['날씨', '지금날씨', '현재날씨'];
+var silsigan_msg = 	['실시간 검색어', '인기 검색어', '검색어'];
+var meet_msg = 		['환영하기'];
+var coin_msg =		['비트코인', '이더리움', '리플', '에이다', '모네로', '트론'];
+var cal_msg =		['칼로리'];
+var chik_msg =		['치킨추천', '치킨 추천'];
+var chik_reply =	['우우우! (BBQ!)', '우우우우! (맘스터치!)', '우우우! (BHC!)', 
+			'우우우우! (페리카나!)', '우우우우! (굽네치킨!)', '우우우우! (네네치킨!)', 
+			'우우우우! (노랑통닭!)', '우우우! (교촌치킨!)', '우우우우! (멕시카나!)', 
+			'우우우우! (부어치킨!)', '우우우우! (순수치킨!)', 
+			'우우우 우우우 우우! (호식이 두마리 치킨!)', '우우우! (처갓집!)', 
+			'우우우우! (바른치킨!)', '우우우! (멕시칸!)', '우우우우! (또래오래!)', 
+			'우우우우! (깐부치킨!)', '우우우우우! (치킨플러스!)', '우우우! (KFC!)'];
+var recommend_ani_msg =	['애니추천', '만화추천', '애니 추천', '만화 추천', '추천애니', '추천만화', 
+			'추천 애니', '추천 만화'];
+var today_ani_msg = 	['오늘의 애니', '오늘의애니', '오늘 애니', '오늘애니',
+			'오늘의 만화', '오늘의만화', '오늘 만화', '오늘만화'];
 
 /* 호감도 명령어 */
-var hogam_up_msg = ['사랑해', '이뻐', '귀여', '좋아', '착해', '똑똑', '최고', 
-					'짱', '예뻐', '귀엽', '커엽', '귀욤', '귀요'];
-var hogam_down_msg = ['바보', '멍청이', '못생', '싫', '나뻐', '나쁜', '멍청해', 
-					'돼지', '뚱땡', '미워', '너무해', '흥', '그만', '냄',
-					'저리', '최악', '나빠', '죽어', '별로'];
-var hogam_sender = [];
-var hogam_sender_value = [];
+var hogam_up_msg = 	['사랑해', '이뻐', '귀여', '좋아', '착해', '똑똑', '최고', 
+			'짱', '예뻐', '귀엽', '커엽', '귀욤', '귀요'];
+var hogam_down_msg = 	['바보', '멍청이', '못생', '싫', '나뻐', '나쁜', '멍청해', 
+			'돼지', '뚱땡', '미워', '너무해', '흥', '그만', '냄',
+			'저리', '최악', '나빠', '죽어', '별로'];
+var hogam_sender = 	[];
+var hogam_sender_value= [];
 
 /* 공부하기 명령어 */
-var study_msg = ['공부하기'];
-var study_check_msg = ['공부내용'];
-var study_del_msg = ['잊어버려'];
-var study_req = [];
-var study_rsp = [];
+var study_msg = 	['공부하기'];
+var study_check_msg = 	['공부내용'];
+var study_del_msg = 	['잊어버려'];
+var study_req = 	[];
+var study_rsp = 	[];
 
 /* 미니게임 명령어 */
-var game_msg = ['미니게임'];
-var boss_game_msg = ['퍽', '펀치', '이얍'];
+var game_msg = 		['미니게임'];
+var boss_game_msg = 	['퍽', '펀치', '이얍'];
 var game_start_flag = 0;
 var game_start_cool_time = 0;
 const BOSS_NEZUKO_HP = 2000;
 var game_hp = BOSS_NEZUKO_HP;
 
 /* 금지어 */
-var yok_msg = ['ㅅㅂ','시발','시빨','씨발','씨빠','씨빨','슈발','싀발','슈빨','쓔발','쓔빨','씌발','싀빨','씌발',
-				'ㅆㅃ','ㅅㅃ','ㅆㅃ','ㅅㅍ','시팔','씨팔', 'ㅄ','ㅂㅅ','병신','븅신','또라이','미친놈','미친년',
-				'개새끼','뒤져','좆','ㅅ1ㅂ','ㅅ@ㅂ','시이발','씨댕','개빡','시파','싀파','싀팔','싀바','꺼져',
-				'꺼저','도라이'];
+var yok_msg = 		['ㅅㅂ','시발','시빨','씨발','씨빠','씨빨','슈발','싀발','슈빨','쓔발',
+			'쓔빨','씌발','싀빨','씌발','ㅆㅃ','ㅅㅃ','ㅆㅃ','ㅅㅍ','시팔','씨팔', 
+			'ㅄ','ㅂㅅ','병신','븅신','또라이','미친놈','미친년','개새끼','뒤져','좆',
+			'ㅅ1ㅂ','ㅅ@ㅂ','시이발','씨댕','개빡','시파','싀파','싀팔','싀바','꺼져',
+			'꺼저','도라이'];
 
 
 function basic_response(msg, replier, req_msg, rsp_msg) {
@@ -254,11 +263,15 @@ function hogam_down_response(msg, replier, req_msg, sender) {
 }
 
 
-function study_req_rsp(msg, replier, req_msg) {
+function study_req_rsp(msg, isGroupChat, replier, req_msg) {
 	var first_msg_start_index = -1;
 	var first_msg_end_index = -1;
 	var second_msg_start_index = -1;
 	var second_msg_end_index = -1;
+
+	if (isGroupChat == 0) {
+		return -1;
+	}
 	
 	for (var i=0; i < req_msg.length; i++) {
 		if (msg.indexOf(req_msg[i]) != -1) {
@@ -583,28 +596,30 @@ function recommend_ani_response(msg, replier, req_msg) {
 }
 
 
-function nezuko_command_response(msg, sender, replier) {
+function nezuko_command_response(msg, sender, isGroupChat, replier) {
 	
 	for (var i=0; i < nezuko_msg.length; i++) {
-		if (msg.indexOf(nezuko_msg[i]) != -1) {
-			/* 네즈코 명령어 */
+		if (msg.indexOf(nezuko_msg[i]) == 0) {
 			if (help_response(msg, replier, help_msg) == 0) return 0;
 			if (meet_response(msg, replier, meet_msg) == 0) return 0;
-			if (coin_response(msg, replier, coin_msg) == 0) return 0;
-			if (study_req_rsp(msg, replier, study_msg) == 0) return 0;
+			if (cal_response(msg, replier, cal_msg) == 0) return 0;
+			if (study_req_rsp(msg, isGroupChat, replier, study_msg) == 0) return 0;
 			if (study_check_response(msg, replier, study_check_msg) == 0) return 0;
 			if (study_del_response(msg, replier, study_del_msg) == 0) return 0;
-			if (cal_response(msg, replier, cal_msg) == 0) return 0;
+			if (game_response(msg, replier, game_msg) == 0) return 0;
+		}
+
+		if (msg.indexOf(nezuko_msg[i]) != -1) {
+			if (coin_response(msg, replier, coin_msg) == 0) return 0;
 			if (nalssi_response(msg, replier, nalssi_msg) == 0) return 0;
 			if (silsigan_response(msg, replier, silsigan_msg) == 0) return 0;
-			if (basic_response(msg, replier, chik_msg, chik_reply) == 0) return 0;
-			if (game_response(msg, replier, game_msg) == 0) return 0;
-			if (boss_game_response(msg, replier, boss_game_msg) == 0) return 0;
 			if (today_ani_response(msg, replier, today_ani_msg) == 0) return 0;
 			if (recommend_ani_response(msg, replier, recommend_ani_msg) == 0) return 0;
+			if (basic_response(msg, replier, chik_msg, chik_reply) == 0) return 0;
+			if (basic_response(msg, replier, nezuko_what_msg, nezuko_what_reply) == 0) return 0;
+			if (basic_response(msg, replier, nezuko_bye_msg, nezuko_bye_reply) == 0) return 0;
 			if (hogam_up_response(msg, replier, hogam_up_msg, sender) == 0) return 0;
 			if (hogam_down_response(msg, replier, hogam_down_msg, sender) == 0) return 0;
-			if (basic_response(msg, replier, nezuko_what_msg, nezuko_what_reply) == 0) return 0;
 		}
 	}
 	
@@ -622,7 +637,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
 	if (hinokami_kagura_response(msg, replier, hinokami_msg) == 0) return;
 
 	/* 네즈코 명령어 */
-	if (nezuko_command_response(msg, sender, replier) == 0) return;
+	if (nezuko_command_response(msg, sender, isGroupChat, replier) == 0) return;
+	if (boss_game_response(msg, replier, boss_game_msg) == 0) return 0;
 	
 	/* 기본적인 응답 */
 	if (basic_response(msg, replier, nezuko_msg, nezuko_reply) == 0) return;
