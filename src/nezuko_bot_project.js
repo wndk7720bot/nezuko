@@ -12,8 +12,8 @@ var hello_msg =		['안녕', '안뇽', '안냥', '하이', 'ㅎㅇ'];
 var hello_reply =	['웅웅! (안녕안녕!)', '우우~~ (안녕~~)', '우우~! (안녕하세요~!)'];
 var nezuko_msg =	['네즈코'];
 var nezuko_reply =	['우우우우우우', '우우우웅? (왜부르냥?)', '...', '그우우우우!!', 
-			'우웅.... (우울한듯하다)', '웅!웅!웅!', '우우우!', '우.....우웅..!', 
-					'....우웅?', '후으으웅', '우......................'];
+			'웅!웅!웅!', '우우우!', '우.....우웅..!', 
+			'....우웅?', '후으으웅', '우......................'];
 var nezuko_what_msg = 	['뭐해', '뭐하', '뭐행', '머해', '머하', '머행', '모해', '모하', '모행'];
 var nezuko_what_reply =	['우~~~~~ 우우우~~ 웅웅~~!! 우우웅!!! (대략 신이났다는 뜻)', 
 			'무으으으으 (만화에 집중하고 있는 듯 하다)', 
@@ -26,7 +26,8 @@ var nezuko_bye_msg = 	['잘자', 'ㅂㅂ', '굿나잇', '바이', 'ㅂ2', 'ㅂ�
 var nezuko_bye_reply =	['우우! (잔다!)', '우우우~ (잘자요~)', '우우.. (잘자..)']; 
 
 var kkk_msg = 		['ㅋㅋㅋㅋ'];
-var kkk_reply = 	['웃우? (웃어?)', 'ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ', 'ㅋ'];
+var kkk_reply = 	['웃우? (웃어?)', 'ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ', 'ㅋ', 'ㅋㅋ?', 
+			'ㅋㅋㅋㅋ', 'ㅋㅋㅋㅋㅋㅋㅋ.....', '우우후후후후훟', 'ㅋㅋㅋㅋㅋㅋ'];
 var hinokami_msg = 	['히노카미 카구라!'];
 
 /* 시간대별 응답어 */
@@ -103,6 +104,26 @@ var yok_msg = 		['ㅅㅂ','시발','시빨','씨발','씨빠','씨빨','슈발',
 
 function basic_response(msg, replier, req_msg, rsp_msg) {
 	var rand = Math.floor(Math.random() * RAND_MAX);
+
+	for (var i=0; i < req_msg.length; i++) {
+		if (msg.indexOf(req_msg[i]) != -1) {
+			java.lang.Thread.sleep(500);
+			replier.reply(rsp_msg[rand % rsp_msg.length]);
+			return 0;
+		}
+	}
+
+	return -1;
+}
+
+
+function sometimes_basic_response(msg, replier, req_msg, rsp_msg) {
+	var sometimes_rand = Math.floor(Math.random() * RAND_MAX);
+	var rand = Math.floor(Math.random() * RAND_MAX);
+
+	if (sometimes_rand > (RAND_MAX / 2)) {
+		return -1;
+	}
 	
 	for (var i=0; i < req_msg.length; i++) {
 		if (msg.indexOf(req_msg[i]) != -1) {
@@ -656,6 +677,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
 	/* 기본적인 응답 */
 	if (basic_response(msg, replier, nezuko_msg, nezuko_reply) == 0) return;
 	if (basic_response(msg, replier, hello_msg, hello_reply) == 0) return;
-	if (basic_response(msg, replier, kkk_msg, kkk_reply) == 0) return;
+	if (sometimes_basic_response(msg, replier, kkk_msg, kkk_reply) == 0) return;
 	if (study_response(msg, replier, study_req, study_rsp) == 0) return;
 }
