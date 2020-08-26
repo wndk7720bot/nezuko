@@ -45,6 +45,14 @@ var silsigan_msg = 	['실시간 검색어', '인기 검색어', '검색어'];
 var meet_msg = 		['환영하기'];
 var coin_msg =		['비트코인', '이더리움', '리플', '에이다', '모네로', '트론'];
 var cal_msg =		['칼로리'];
+var ramen_msg =		['라면추천', '라면 추천'];
+var ramen_content =	['신라면', '진라면', '안성탕면', '삼양라면', '너구리', '무파마', '남자라면',
+			'꼬꼬면', '진짬뽕', '맛짬뽕', '공화춘', '짜파게티', '짜왕', '팔도비빔면',
+			'불닭볶음면', '틈새라면'];
+var ramen_sub_content =	['계란', '파송송', '치즈', '참치', '삼겹살', '푸아그라', '슈바인학센',
+			'글라쉬나', '파전', '취두부', '홍어', '수르스트뢰밍', '멘보샤', '도마뱀',
+			'꽃', '향수', '태풍', '고추기름', '물 한사바리', '제로콜라', '장아찌'];
+
 var chik_msg =		['치킨추천', '치킨 추천'];
 var chik_reply =	['우우우! (BBQ!)', '우우우우! (맘스터치!)', '우우우! (BHC!)', 
 			'우우우우! (페리카나!)', '우우우우! (굽네치킨!)', '우우우우! (네네치킨!)', 
@@ -107,6 +115,22 @@ function basic_response(msg, replier, req_msg, rsp_msg) {
 		if (msg.indexOf(req_msg[i]) != -1) {
 			java.lang.Thread.sleep(500);
 			replier.reply(rsp_msg[rand % rsp_msg.length]);
+			return 0;
+		}
+	}
+
+	return -1;
+}
+
+
+function ramen_response(msg, replier, req_msg, rsp_main_msg, rsp_sub_msg) {
+	var main_rand = Math.floor(Math.random() * RAND_MAX);
+	var sub_rand = Math.floor(Math.random() * RAND_MAX);
+
+	for (var i=0; i < req_msg.length; i++) {
+		if (msg.indexOf(req_msg[i]) != -1) {
+			java.lang.Thread.sleep(500);
+			replier.reply("흐흐! (" + rsp_sub_msg[sub_rand % rsp_sub_msg.length] + " 넣은 " + rsp_main_msg[main_rand % rsp_main_msg.length] + "!)");
 			return 0;
 		}
 	}
@@ -676,6 +700,7 @@ function nezuko_command_response(msg, sender, isGroupChat, replier) {
 			if (silsigan_response(msg, replier, silsigan_msg) == 0) return 0;
 			if (today_ani_response(msg, replier, today_ani_msg) == 0) return 0;
 			if (recommend_ani_response(msg, replier, recommend_ani_msg) == 0) return 0;
+			if (ramen_response(msg, replier, ramen_msg, ramen_content, ramen_sub_content) == 0) return 0;
 			if (basic_response(msg, replier, chik_msg, chik_reply) == 0) return 0;
 			if (basic_response(msg, replier, nezuko_what_msg, nezuko_what_reply) == 0) return 0;
 			if (basic_response(msg, replier, nezuko_bye_msg, nezuko_bye_reply) == 0) return 0;
