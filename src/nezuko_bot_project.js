@@ -69,6 +69,7 @@ var meal_reply = 	['우! (짜장면!)', '우! (짬뽕!)', '우! (탕수육!)', '
 			'우! (불고기!)', '우! (낙지!)', '우! (치킨!)', '우! (떡볶이!)',
 			'우! (순대!)', '우! (빙수!)', '우! (보쌈!)', '우! (빵!)', '우! (케이크!)',
 			'우! (푸딩!)'];
+var corona_msg =	['코로나'];
 
 /* 호감도 명령어 */
 var hogam_up_msg = 	['사랑해', '이뻐', '귀여', '좋아', '착해', '똑똑', '최고', 
@@ -617,10 +618,39 @@ function recommend_ani_response(msg, replier, req_msg) {
 				var str = " - " + keywordData["s"] + " (" + keywordData["g"] + ")" + "\n   : " + keywordData["l"]; 
 							
 				replier.reply("오우~! (추천애니는 아래와 같은 것 같다)\n\n" + str); 
+			} catch (e) {
+				replier.reply("... (네즈코가 정신이 없다)");
+			}
+
+			return 0;
+		}
+	}
+
+	return -1
+}
+
+
+function corona_response(msg, replier, req_msg) {
+
+	for (var i=0; i < req_msg.length; i++) {
+		if (msg.indexOf(req_msg[i]) != -1) {
+			try {
+				var a = Utils.getWebText("http://ncov.mohw.go.kr/");
+				var b = "누적 확진자 : " + a.split("<span class=\"mini\">(누적)</span>")[1].split("</span>")[0];
+				var bb = a.split("<span class=\"before\">전일대비")[1].split("</span>")[0].replace("(", "").replace(")", "");
+				var c = "누적 완치자 : " + a.split("<span class=\"mini_tit\">(격리해제)</span></strong> <span class=\"num\">")[1].split("</span>")[0];
+				var cc = a.split("<span class=\"before\">")[2].split("</span>")[0].replace("(", " ").replace(")", "");
+				var d = "치료중 : " + a.split("<span class=\"mini_tit\">(격리 중)</span></strong> <span class=\"num\">")[1].split("</span>")[0];
+				var dd = a.split("<span class=\"before\">")[3].split("</span>")[0].replace("(", " ").replace(")", "");
+				var e = "누적 사망자 : " + a.split("<strong class=\"tit\">사망</strong> <span class=\"num\">")[1].split("</span>")[0];
+				var ee = a.split("<span class=\"before\">")[4].split("</span>")[0].replace("(", " ").replace(")", "");
+				var result = b + bb + "\n" + c + cc + "\n" + d + dd + "\n" + e + ee;
+
+				replier.reply("우우.. (코로나 확진자 현황은 아래와 같다)\n\n" + result);
 			} catch (e) { 
 				replier.reply("... (네즈코가 정신이 없다)"); 
 			} 
-			
+
 			return 0;
 		}
 	}
@@ -643,6 +673,7 @@ function nezuko_command_response(msg, sender, isGroupChat, replier) {
 		}
 
 		if (msg.indexOf(nezuko_msg[i]) != -1) {
+			if (corona_response(msg, replier, corona_msg) == 0) return 0;
 			if (coin_response(msg, replier, coin_msg) == 0) return 0;
 			if (nalssi_response(msg, replier, nalssi_msg) == 0) return 0;
 			if (silsigan_response(msg, replier, silsigan_msg) == 0) return 0;
